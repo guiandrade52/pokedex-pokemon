@@ -1,0 +1,9 @@
+.pokemon-info {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 20px;
+    margin: auto;
+    width: 10%;
+    padding: 30px;
+}
+  
