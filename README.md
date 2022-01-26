@@ -10,9 +10,9 @@ Nesse projeto foram utilizadas as seguintes tecnologias:
 
 # Para utilizar o projeto localmente, basta utilizar os comandos abaixo:
 
-- npm install ou yarn install
+- **npm install ou yarn install**
 
-Após isto, só usar o yarn start e pronto!
+Após isto, só usar o **yarn start** e pronto!
 O projeto estará rodando localmente na sua máquina!
 
 Segue abaixo imagens do projeto:
