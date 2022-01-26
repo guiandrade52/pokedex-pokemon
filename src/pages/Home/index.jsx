@@ -8,14 +8,12 @@ export const Home = () => {
   const [pokemons, setPokemons] = useState([]);
   const [filterPokemons, setFilterPokemons] = useState();
   const [nomePokemon, setNomePokemon] = useState("");
-  const [pokemonType, setPokemonType] = useState("");
 
   useEffect(() => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/squirtle`)
       .then((res) => {
         setPokemons(res.data);
-        setPokemonType(res.data.types);
       })
       .catch((err) => {
         console.log(err);
@@ -23,14 +21,17 @@ export const Home = () => {
   }, []);
 
   async function handlePokemon() {
-    if(nomePokemon === '') return
+    if (nomePokemon === "") return;
 
-    const getPokemon = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${nomePokemon}`
-    );
-    const results = getPokemon.data;
-    console.log(results);
-    setFilterPokemons(results);
+    try {
+      const getPokemon = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${nomePokemon}`
+      );
+      const results = getPokemon.data;
+      setFilterPokemons(results);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
@@ -106,7 +107,7 @@ export const Home = () => {
                   alt={pokemons.name}
                 />
                 <p>
-                  Type:  
+                  Type:
                   {filterPokemons.types.map((type) => (
                     <li className="pokemon-type">{type.type.name}</li>
                   ))}
